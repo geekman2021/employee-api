@@ -1,6 +1,6 @@
-package services.repository;
+package com.arkeup.employee_api.services.repository;
 
-import commun.domain.object.Employee;
+import com.arkeup.employee_api.data.domain.object.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
