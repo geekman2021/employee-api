@@ -11,6 +11,7 @@ public class Employee {
     private Integer id;
     private String nom;
     private String prenom;
+    @Column(unique = true)
     private String email;
     @Column(name = "adresse")
     private String adress;
