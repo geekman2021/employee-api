@@ -15,11 +15,7 @@ import java.util.Optional;
 @Service
 public class EmployeeSAImpl implements EmployeeSA {
     @Autowired
-    private final EmployeeSM employeeSM;
-
-    public EmployeeSAImpl(EmployeeSM employeeSM) {
-        this.employeeSM = employeeSM;
-    }
+    private  EmployeeSM employeeSM;
 
     @Override
     public Employee createEmployee(Employee employee) {

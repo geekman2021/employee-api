@@ -11,11 +11,7 @@ import java.util.Optional;
 @Service
 public class EmployeeSMImpl implements EmployeeSM {
     @Autowired
-    private final EmployeRepository employeRepository;
-
-    public EmployeeSMImpl(EmployeRepository employeRepository) {
-        this.employeRepository = employeRepository;
-    }
+    private EmployeRepository employeRepository;
     @Override
     public Employee saveEmployee(Employee employee) {
         validateEmployee(employee);

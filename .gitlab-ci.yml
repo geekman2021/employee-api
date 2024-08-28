@@ -1,0 +1,30 @@
+variables:
+  DOCKER_DRIVER: overlay
+
+stages:
+  - build
+  - deploy
+
+maven-build-job:
+  image: maven-latest
+  stage: build
+  script:
+    - echo "Compiling the code ..."
+    - mvn package
+  artifacts:
+    paths:
+      - target/*.jar
+
+deploy-job:
+  image: docker:latest
+  stage: deploy
+  services:
+    - name: docker:dind
+  script:
+    - echo "Deploying application ..."
+    - docker build -t Therak/employee-api . -f Dockerfile
+    - echo "Login to Docker Hub ..."
+    - docker login -u therak501 -p rakman2022
+    - echo "Pushing to Docker Hub..."
+    - docker push Therak/employee-api
+    - echo "Application successfully deployed."

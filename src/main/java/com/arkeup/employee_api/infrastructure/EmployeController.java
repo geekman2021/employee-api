@@ -2,6 +2,7 @@ package com.arkeup.employee_api.infrastructure;
 
 import com.arkeup.employee_api.data.domain.object.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.web.bind.annotation.*;
 
 import com.arkeup.employee_api.services.applicatif.EmployeeSA;
@@ -13,11 +14,7 @@ import java.util.Optional;
 @RequestMapping(path = "employee")
 public class EmployeController {
     @Autowired
-    private final  EmployeeSA employeeSA;
-
-    public EmployeController(EmployeeSA employeeSA) {
-        this.employeeSA = employeeSA;
-    }
+    private  EmployeeSA employeeSA;
 
     @GetMapping
     public List<Employee> getAllEmployees() {
